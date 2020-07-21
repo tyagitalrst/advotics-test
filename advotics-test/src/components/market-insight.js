@@ -70,7 +70,7 @@ export default function MarketInsight(props) {
                         <div className={classes.cardHeading2}>
                             <div className={classes.labelRoot}>
                                 <img src={HelpIcon} alt="icon" className={classes.fontIcon}/>
-                                <a className={classes.help}>Click Here for Help</a>
+                                <a className={classes.help} href="/">Click Here for Help</a>
                             </div>
                         </div>
                     </div>

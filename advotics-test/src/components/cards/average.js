@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, useTheme, withStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
@@ -9,6 +9,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import InputBase from '@material-ui/core/InputBase';
 import Typography from '@material-ui/core/Typography';
+import AverageChart from '../average-chart';
 
 const BootstrapInput = withStyles((theme) => ({
     root: {
@@ -34,6 +35,7 @@ const BootstrapInput = withStyles((theme) => ({
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 664,
+        height: '100%'
     },
     margin: {
         alignItems: 'center',
@@ -58,6 +60,10 @@ const useStyles = makeStyles((theme) => ({
         width: 107,
         height: 32,
     },
+
+    bottomChart:{
+        marginTop: 48,
+    }
 }));
 
 export default function AverageCard(props) {
@@ -67,7 +73,7 @@ export default function AverageCard(props) {
         setPeriod(event.target.value);
     };
 
-    const category = '1';
+    // const category = '1';
 
     return (
         <Card className={classes.root}>
@@ -96,8 +102,8 @@ export default function AverageCard(props) {
                     </IconButton>
                 </div>
             </div>
-            <CardContent>
-
+            <CardContent className={classes.bottomChart}>
+                <AverageChart />
             </CardContent>
         </Card>
     );

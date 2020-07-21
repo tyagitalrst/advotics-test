@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import FirstProducts from '../../static/img/products-1.png'
 import CardMedia from '@material-ui/core/CardMedia';
 import ListItem from '@material-ui/core/ListItem';
 
