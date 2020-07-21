@@ -39,6 +39,38 @@ const theme = createMuiTheme({
           }
         },
       },
+      MuiAccordionDetails: {
+        root: {
+          padding: '16px 0',
+        }
+      },
+      MuiCardContent: {
+        root: {
+          padding: '0 16px 16px',
+          '&:last-child': {
+            paddingBottom: '16px',
+          }
+        }
+      },
+      MuiList: {
+        root: {
+          '&$padding': {
+            padding: '0',
+          }
+        }
+      },
+      MuiListItemIcon:{
+        root: {
+          minWidth: '60px'
+        }
+      },
+      MuiListItem:{
+        root: {
+          '&$gutters': {
+            paddingLeft: '12px'
+          }
+        }
+      },
     },
     typography: {
         fontFamily: [
@@ -46,6 +78,9 @@ const theme = createMuiTheme({
           'sans-serif',
           'Source Sans Pro',
         ].join(','),
+        h5: {
+          fontSize: '1.25rem',
+        }
     },
 
   });
