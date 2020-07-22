@@ -12,7 +12,8 @@ const useStyles = makeStyles((theme) => ({
     appBar: {
         backgroundColor: '#ffffff',
         padding: '0 32px',
-        height: '64px'
+        height: '64px',
+        zIndex: '1'
     },
     icon: {
         height: 32,

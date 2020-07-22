@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
     cardHeading2: {
         display: 'flex',
     },
-
     fontIcon: {
         color: 'white',
         fontSize: '12px',
@@ -76,12 +75,14 @@ export default function MarketInsight(props) {
                 </div>
             </AccordionSummary>
             <AccordionDetails>
+                
+                <h1>{props.days}</h1> 
+
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
                         <SalesCard />
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        {/* <h1>{props.date}</h1> */}
                         <AverageCard />
                     </Grid>
                     <Grid item xs={12} md={3}>

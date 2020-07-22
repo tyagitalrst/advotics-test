@@ -9,13 +9,13 @@ class Dashboard extends Component {
     constructor() {
         super()
         this.state = {
-            date: "Period"
+            days: 7
         };
     }
 
-    onChangePeriod(newPeriod) {
+    onChangePeriod(newDays) {
         this.setState({
-            date: newPeriod
+            days: newDays
         });
     }
 
@@ -24,16 +24,16 @@ class Dashboard extends Component {
             <div>
                 <LayoutDashboard dashboard={
                     <Grid container spacing={1}>
-                        <Grid item xs={12} md={7}>
+                        <Grid item xs={12} md={8}>
                             <Typography variant="h1">Dashboard</Typography>
                         </Grid>
-                        <Grid item xs={12} md={5}>
+                        <Grid item xs={12} md={4}>
                             <Period
                                 changePeriod={this.onChangePeriod.bind(this)}
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <MarketInsight date={this.state.date} />
+                            <MarketInsight days={this.state.days} />
                         </Grid>
                     </Grid>
                 } />
