@@ -1,9 +1,11 @@
-import React, { Component, useState } from 'react';
-import Button from '@material-ui/core/Button';
+import React, { Component } from 'react';
 import DateRangePicker from 'react-bootstrap-daterangepicker';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-daterangepicker/daterangepicker.css';
 import moment from "moment";
+import ButtonPeriod from '../components/button-period';
+import 'moment/min/locales'
+
 
 const range = {
     Today: [moment(), moment()],
@@ -51,17 +53,17 @@ class Period extends Component {
         return (
             <DateRangePicker
                 ranges={range}
-                opens={'center'}
+                opens={'left'}
                 alwaysShowCalendars={true}
                 onEvent={this.handleEvent}
-                // startDate={moment().subtract(6, "days")}
-                // endDate={moment()}
+                startDate={moment().subtract(6, "days")}
+                endDate={moment()}
                 minDate={moment().subtract(6, "month")}
                 maxDate={moment()}
             >
-                <button>
-                    {moment(this.state.fromDate).format("LL")} - {moment(this.state.toDate).format("LL")}
-                </button>
+                <ButtonPeriod
+                    fromDate={this.state.fromDate}
+                    toDate={this.state.toDate} />
             </DateRangePicker>
         );
     }

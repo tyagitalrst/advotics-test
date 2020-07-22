@@ -4,7 +4,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import AdvoticsIcon from '../../src/static/img/advotics-logo.png';
-import LogoutIcon from '../../src/static/img/logout.png'
+import LogoutIcon from '../../src/static/img/logout.png';
+import IconButton from '@material-ui/core/IconButton';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -39,13 +40,15 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         margin: '0',
         color: 'black',
-        padding: '16px 0px'
+        padding: '16px'
     },
     details: {
         display: 'flex',
         flexDirection: 'column',
         flexGrow: '1',
         padding: '0 16px 0 0',
+        fontFamily: 'Open Sans',
+        color: theme.palette.secondary.light
 
     },
     username: {
@@ -54,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
         '& p': {
             fontSize: '0,875rem',
             margin: '0',
-            fontWeight: 'bold'
+            fontWeight: theme.typography.fontWeightMedium
         }
     },
     cover: {
@@ -70,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
             flexGrow: 0,
             margin: '0',
             fontSize: '10px',
-            fontWeight: 'inherit',
+            fontWeight: theme.typography.fontWeightLight
         }
     },
 
@@ -82,7 +85,6 @@ const useStyles = makeStyles((theme) => ({
     },
     navHeading2: {
         display: 'flex',
-        marginRight: 16,
     },
 
 }));
@@ -111,12 +113,12 @@ export default function Navbar() {
                                             </div>
                                         </div>
                                     </div>
-                                    <AccountCircle className={classes.iconAccount} />
+                                    <AccountCircle className={classes.iconAccount} style={{ color: '#707070C4' }}/>
                                 </div>
                             </div>
-                            <div className={classes.iconLogout}>
+                            <IconButton aria-label="settings">
                                 <img src={LogoutIcon} alt="icon" />
-                            </div>
+                            </IconButton>
                         </div>
                     </div>
                 </Toolbar>

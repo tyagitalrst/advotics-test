@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: 276,
     },
     moreIcon: {
-        padding: "0 0 0 16px",
+        margin: -12
     },
 
     listItem: {
@@ -67,6 +67,9 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         padding: 0,
+        '& p': {
+            color: theme.palette.text.secondary
+        }
     },
     percentage: {
         color: 'red',
@@ -81,8 +84,9 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'space-between',
         paddingBottom: 0,
         '&>p': {
-            fontSize: '0.75rem',
-            margin: 0
+            fontSize: '0.875rem',
+            margin: 0,
+            color: theme.palette.secondary.contrastText
         }
 
     },
@@ -102,7 +106,7 @@ export default function SalesCard(props) {
                 <p>Sales Turnover</p>
                 <div className={classes.cardHeading2}>
                     <IconButton aria-label="settings" className={classes.moreIcon}>
-                        <MoreVertIcon />
+                        <MoreVertIcon style={{ color: '#757575' }}/>
                     </IconButton>
                 </div>
             </div>

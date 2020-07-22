@@ -7,26 +7,27 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import List from '@material-ui/core/List';
 import CardItem from './card-item'
 import { dummyBestTop } from '../../constants/dummyData';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
   },
   moreIcon: {
-    padding: '0 0 0 16px',
+    margin: -12
   },
   listItem: {
     padding: '0px',
   },
-  
+
   cardHeading: {
     padding: '16px',
     display: 'flex',
     justifyContent: 'space-between',
 
-    '&>p': {
-      fontSize: '1.25rem',
-      margin: 0
+    '&>h3': {
+      margin: 0,
+      fontWeight: theme.typography.fontWeightRegular
     }
 
   },
@@ -43,10 +44,10 @@ export default function BestTopCard(props) {
   return (
     <Card className={classes.root}>
       <div className={classes.cardHeading}>
-        <p>{props.title}</p>
+        <Typography variant="h3">{props.title}</Typography>
         <div className={classes.cardHeading2}>
           <IconButton aria-label="settings" className={classes.moreIcon}>
-            <MoreVertIcon />
+            <MoreVertIcon style={{ color: '#757575' }}/>
           </IconButton>
         </div>
       </div>

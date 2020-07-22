@@ -10,7 +10,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
+import DashboardIcon from '../static/img/dashboard-icon.png';
 
 const drawerWidth = 180;
 
@@ -44,11 +44,22 @@ const useStyles = makeStyles((theme) => ({
             width: theme.spacing(9) + 1,
         },
     },
+    active: {
+        backgroundColor: '#D2D2D2',
+        '& span':{
+            color: theme.palette.primary.main,
+            fontWeight: 600,
+        }
+    },
+    notActive: {
+        backgroundColor: 'none'
+    }
 }));
 
 export default function Dashboard() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    const [status, setStatus] = React.useState(true);
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -57,6 +68,10 @@ export default function Dashboard() {
     const handleDrawerClose = () => {
         setOpen(false);
     };
+
+    const handleOnClick = () => {
+        setStatus(!status)
+    }
 
 
     return (
@@ -87,10 +102,10 @@ export default function Dashboard() {
                     </ListItemIcon>
                 </ListItem>
                 <Divider />
-                <ListItem button >
+                <ListItem button onClick={handleOnClick} className={status? classes.active : classes.notActive}>
                     <ListItemIcon>
                         <IconButton >
-                            <InboxIcon />
+                            <img src={DashboardIcon} alt="icon" />
                         </IconButton>
                     </ListItemIcon>
                     <ListItemText primary={"Dashboard"} />

@@ -16,10 +16,9 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         backgroundColor: '#F7F7F7',
         boxShadow: 'none',
+        paddingTop: '32px'
     },
     heading: {
-        fontSize: theme.typography.pxToRem(15),
-        fontWeight: theme.typography.fontWeightRegular,
         color: '#FFFFFF',
     },
     accordionSummary: {
@@ -50,6 +49,8 @@ const useStyles = makeStyles((theme) => ({
     help: {
         textDecoration: 'underline',
         color: 'white',
+        fontSize: '0.875rem',
+        fontWeight: '300'
     }
 }));
 
@@ -57,42 +58,41 @@ export default function MarketInsight(props) {
     const classes = useStyles();
 
     return (
-        <div >
-            <Accordion defaultExpanded className={classes.root}>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                    className={classes.accordionSummary}
-                >
-                    <div className={classes.cardHeading}>
-                        <Typography className={classes.heading}>MARKET INSIGHT</Typography>
-                        <div className={classes.cardHeading2}>
-                            <div className={classes.labelRoot}>
-                                <img src={HelpIcon} alt="icon" className={classes.fontIcon}/>
-                                <a className={classes.help} href="/">Click Here for Help</a>
-                            </div>
+        <Accordion defaultExpanded className={classes.root}>
+            <AccordionSummary
+                expandIcon={<ExpandMoreIcon style={{ color: '#FFFFFF' }} />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+                className={classes.accordionSummary}
+            >
+                <div className={classes.cardHeading}>
+                    <Typography variant="h3" className={classes.heading}>MARKET INSIGHT</Typography>
+                    <div className={classes.cardHeading2}>
+                        <div className={classes.labelRoot}>
+                            <img src={HelpIcon} alt="icon" className={classes.fontIcon} />
+                            <a className={classes.help} href="/">Click Here for Help</a>
                         </div>
                     </div>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Grid container spacing={2}>
-                        <Grid item xs={12}>
-                            <SalesCard />
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                            {/* <h1>{props.date}</h1> */}
-                            <AverageCard />
-                        </Grid>
-                        <Grid item xs={12} md={3}>
-                            <BestTopCard title={"BEST SELLING SKU"} />
-                        </Grid>
-                        <Grid item xs={12} md={3}>
-                            <BestTopCard title={"TOP COMPETITOR SKU"} />
-                        </Grid>
+                </div>
+            </AccordionSummary>
+            <AccordionDetails>
+                <Grid container spacing={2}>
+                    <Grid item xs={12}>
+                        <SalesCard />
                     </Grid>
-                </AccordionDetails>
-            </Accordion>
-        </div>
+                    <Grid item xs={12} md={6}>
+                        {/* <h1>{props.date}</h1> */}
+                        <AverageCard />
+                    </Grid>
+                    <Grid item xs={12} md={3}>
+                        <BestTopCard title={"BEST SELLING SKU"} />
+                    </Grid>
+                    <Grid item xs={12} md={3}>
+                        <BestTopCard title={"TOP COMPETITOR SKU"} />
+                    </Grid>
+                </Grid>
+            </AccordionDetails>
+        </Accordion>
+
     );
 }

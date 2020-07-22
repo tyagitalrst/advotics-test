@@ -41,8 +41,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
     },
     moreIcon: {
-        paddingLeft: 16,
-        paddingRight: 0,
+        marginRight: -12,
     },
 
     cardHeading: {
@@ -50,6 +49,9 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        '&>h3': {
+            fontWeight: theme.typography.fontWeightRegular,
+        }
     },
     cardHeading2: {
         display: 'flex',
@@ -68,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AverageCard(props) {
     const classes = useStyles();
-    const [period, setPeriod] = React.useState('');
+    const [period, setPeriod] = React.useState('0');
     const handleChange = (event) => {
         setPeriod(event.target.value);
     };
@@ -78,7 +80,7 @@ export default function AverageCard(props) {
     return (
         <Card className={classes.root}>
             <div className={classes.cardHeading}>
-                <Typography variant="h5">AVERAGE PURCHASE VALUE</Typography>
+                <Typography variant="h3">AVERAGE PURCHASE VALUE</Typography>
                 <div className={classes.cardHeading2}>
                     <FormControl variant="outlined">
                         <Select
@@ -89,8 +91,8 @@ export default function AverageCard(props) {
                             className={classes.formControl}
                             input={<BootstrapInput />}
                         >
-                            <MenuItem value="">
-                                <em>None</em>
+                            <MenuItem value={"0"}>
+                                <em>Last 7 days</em>
                             </MenuItem>
                             <MenuItem value={"1"}>Ten</MenuItem>
                             <MenuItem value={"2"}>Twenty</MenuItem>
@@ -98,7 +100,7 @@ export default function AverageCard(props) {
                         </Select>
                     </FormControl>
                     <IconButton aria-label="settings" className={classes.moreIcon}>
-                        <MoreVertIcon />
+                        <MoreVertIcon style={{ color: '#757575' }}/>
                     </IconButton>
                 </div>
             </div>

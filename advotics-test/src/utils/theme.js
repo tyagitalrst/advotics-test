@@ -6,10 +6,11 @@ const theme = createMuiTheme({
         main: '#37B04C',
         contrastText: '#FFFFFF'
       },
-      seconday: {
+      secondary: {
         main: '#F7F7F7',
         light: '#727272',
         contrastText: '#707070C4',
+        dark: '#C5C5C5'
       },
       info: {
         main: '#6A6A6A',
@@ -22,9 +23,9 @@ const theme = createMuiTheme({
         secondary: '#00000099',
       },
       action: {
-        active: '#D2D2D2',
-        selected: '#D2D2D2',
-        hover: '#D2D2D2',
+        active: '#707070C4',
+        selected: '#707070C4',
+        hover: '#707070C4',
       },
       background: {
         default: '#F7F7F7',
@@ -74,12 +75,23 @@ const theme = createMuiTheme({
     },
     typography: {
         fontFamily: [
-          'Open Sans', 
-          'sans-serif',
           'Source Sans Pro',
+          'sans-serif',
         ].join(','),
         h5: {
           fontSize: '1.25rem',
+        },
+        fontWeightMedium: {
+          fontWeight: 600,
+        },
+        h3: {
+          fontSize: '1.25rem',
+          fontWeight: 600,
+        },
+        h1: {
+          fontSize: '2.5rem',
+          fontWeight: 600,
+          color: '#707070C4',
         }
     },
 

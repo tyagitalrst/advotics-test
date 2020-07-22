@@ -38,16 +38,18 @@ const useStyles = makeStyles((theme) => ({
         flex: '1 0 auto',
         padding: '0',
         '& p': {
-            fontSize: '16px',
+            fontSize: '1rem',
             margin: '0',
+            color: theme.palette.text.disabled
         }
     },
     contentFirst: {
         flex: '1 0 auto',
         padding: '0',
         '& p': {
-            fontSize: '20px',
+            fontSize: '1.25rem',
             margin: '0',
+            color: theme.palette.text.disabled
         }
     },
     cover: {
@@ -66,7 +68,8 @@ const useStyles = makeStyles((theme) => ({
         '& p': {
             flexGrow: '1',
             margin: '0',
-            fontSize: '12px'
+            fontSize: '0.75rem',
+            color: theme.palette.text.secondary
         }
     },
     controlsFirst: {
@@ -77,7 +80,8 @@ const useStyles = makeStyles((theme) => ({
         '& p': {
             flexGrow: '1',
             margin: '0',
-            fontSize: '14px'
+            fontSize: '0.875',
+            color: theme.palette.text.secondary
         }
     },
 }));
