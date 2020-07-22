@@ -5,7 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Typography from '@material-ui/core/Typography';
-import AverageChart from '../average-chart';
+import AverageChart from './average-chart';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -22,11 +22,12 @@ const BootstrapInput = withStyles((theme) => ({
         position: 'relative',
         backgroundColor: 'white',
         border: '1px solid #ced4da',
-        fontSize: 16,
+        fontSize: 12,
         padding: '10px 26px 10px 12px',
         transition: theme.transitions.create(['border-color', 'box-shadow']),
         '&:focus': {
             borderRadius: 4,
+            backgroundColor: 'white',
             borderColor: 'none',
             boxShadow: 'none',
         },
@@ -82,11 +83,11 @@ export default function AverageCard(props) {
     const classes = useStyles();
     const [period, setPeriod] = React.useState('0');
     const [valChart, setValChart] = React.useState([getRandomValues(), getRandomValues(), getRandomValues(), getRandomValues(), getRandomValues()]);
+
     const handleChange = (event) => {
-        setPeriod(event.target.value);
+        setPeriod(event.target.value)
         setValChart([getRandomValues(), getRandomValues(), getRandomValues(), getRandomValues(), getRandomValues()])
     };
-
 
     return (
         <Card className={classes.root}>
@@ -97,21 +98,23 @@ export default function AverageCard(props) {
                         <Select
                             labelId="demo-customized-select-label"
                             id="demo-customized-select"
+                            defaultValue={'0'}
                             value={period}
                             onChange={handleChange}
                             className={classes.formControl}
                             input={<BootstrapInput />}
                         >
-                            <MenuItem value={"0"}>
-                                <em>Last 7 days</em>
+                            <MenuItem value={""}>
+                                <em></em>
                             </MenuItem>
+                            <MenuItem value={"0"}>Last 7 days</MenuItem>
                             <MenuItem value={"1"}>Yesterday</MenuItem>
                             <MenuItem value={"2"}>Last 30 days</MenuItem>
                             <MenuItem value={"3"}>This Month</MenuItem>
                             <MenuItem value={"4"}>Custom</MenuItem>
                         </Select>
                     </FormControl>
-                    <IconButton aria-label="settings" className={classes.moreIcon}>
+                    <IconButton aria-label="settings" className={classes.moreIcon} href="/">
                         <MoreVertIcon style={{ color: '#757575' }} />
                     </IconButton>
                 </div>

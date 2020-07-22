@@ -10,7 +10,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import DashboardIcon from '../static/img/dashboard-icon.png';
+import DashboardIcon from '../../static/img/dashboard-icon.png';
 
 const drawerWidth = 180;
 
@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function Dashboard() {
+export default function Dashboard(props) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const [status, setStatus] = React.useState(true);
@@ -72,6 +72,7 @@ export default function Dashboard() {
 
     const handleOnClick = () => {
         setStatus(!status)
+        props.changeStatus(!status)
     }
 
 

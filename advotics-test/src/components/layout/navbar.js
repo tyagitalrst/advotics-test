@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import AdvoticsIcon from '../../src/static/img/advotics-logo.png';
-import LogoutIcon from '../../src/static/img/logout.png';
+import AdvoticsIcon from '../../static/img/advotics-logo.png';
+import LogoutIcon from '../../static/img/logout.png';
 import IconButton from '@material-ui/core/IconButton';
 
 
@@ -117,7 +117,7 @@ export default function Navbar() {
                                     <AccountCircle className={classes.iconAccount} style={{ color: '#707070C4' }}/>
                                 </div>
                             </div>
-                            <IconButton aria-label="settings">
+                            <IconButton aria-label="settings" href="/">
                                 <img src={LogoutIcon} alt="icon" />
                             </IconButton>
                         </div>

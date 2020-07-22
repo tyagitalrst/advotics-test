@@ -6,8 +6,9 @@ import IconButton from '@material-ui/core/IconButton';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import List from '@material-ui/core/List';
 import CardItem from './card-item'
-import { dummyBestTop } from '../../constants/dummyData';
+import { dummyBestTop } from '../../../../constants/dummy-data';
 import Typography from '@material-ui/core/Typography';
+import { THISMONTH } from '../../../../constants/index';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,14 +40,26 @@ const useStyles = makeStyles((theme) => ({
 export default function BestTopCard(props) {
   const classes = useStyles();
 
-  const category = '1';
+  const category = () => {
+    if(props.days ===  1) {
+      return 1;
+    } else if (props.days === 7){
+      return 2;
+    } else if (props.days === THISMONTH){
+      return 3;
+    } else if (props.days < THISMONTH) {
+      return 4;
+    } else if (props.days > THISMONTH) {
+      return 5;
+    }
+  }
 
   return (
     <Card className={classes.root}>
       <div className={classes.cardHeading}>
         <Typography variant="h3">{props.title}</Typography>
         <div className={classes.cardHeading2}>
-          <IconButton aria-label="settings" className={classes.moreIcon}>
+          <IconButton aria-label="settings" className={classes.moreIcon} href="/">
             <MoreVertIcon style={{ color: '#757575' }}/>
           </IconButton>
         </div>
@@ -55,7 +68,7 @@ export default function BestTopCard(props) {
         <List>
           {dummyBestTop.sort((a, b) => b.price * b.sold - a.price * a.sold).map((data, index) =>
             (
-              data.category === category ?
+              data.category === category() ?
                 <CardItem
                   key={index}
                   image={data.img}

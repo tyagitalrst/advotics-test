@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Navbar from './navbar';
 import Menu from './menu';
@@ -16,14 +16,19 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LayoutDashboard(props) {
     const classes = useStyles();
+    const [status, setStatus] = useState(true);
+
+    const onChangeStatus = (newStatus) => {
+        setStatus(newStatus)
+    };
 
     return (
         <div>
             <Navbar />
             <div className={classes.root}>
-                <Menu />
+                <Menu changeStatus={onChangeStatus}/>
                 <main className={classes.content}>
-                    {props.dashboard}
+                    {status ? props.dashboard : null}
                 </main>
             </div>
         </div>

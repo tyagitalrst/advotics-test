@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-daterangepicker/daterangepicker.css';
 import moment from "moment";
 import 'moment/min/locales';
-import '../css/date-range-picker.css';
-import ButtonPeriod from '../components/button-period';
+import '../../css/date-range-picker.css';
+import ButtonPeriod from './button-period';
 
 
 const range = {

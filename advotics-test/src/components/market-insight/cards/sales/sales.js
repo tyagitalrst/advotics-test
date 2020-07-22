@@ -4,9 +4,11 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import IconButton from '@material-ui/core/IconButton';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import Cart from '../../static/img/sales-turnover.svg';
+import Cart from '../../../../static/img/sales-turnover.svg';
 import CardMedia from '@material-ui/core/CardMedia';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import { THISMONTH } from '../../../../constants/index';
+import { dummySalesTurnover } from '../../../../constants/dummy-data';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -98,31 +100,49 @@ const useStyles = makeStyles((theme) => ({
 export default function SalesCard(props) {
     const classes = useStyles();
 
-    // const category = '1';
+    const category = () => {
+        if (props.days === 1) {
+            return 1;
+        } else if (props.days === 7) {
+            return 2;
+        } else if (props.days === THISMONTH) {
+            return 3;
+        } else if (props.days < THISMONTH) {
+            return 4;
+        } else if (props.days > THISMONTH) {
+            return 5;
+        }
+    }
 
     return (
         <Card className={classes.root}>
             <div className={classes.cardHeading}>
                 <p>Sales Turnover</p>
                 <div className={classes.cardHeading2}>
-                    <IconButton aria-label="settings" className={classes.moreIcon}>
-                        <MoreVertIcon style={{ color: '#757575' }}/>
+                    <IconButton aria-label="settings" className={classes.moreIcon} href="/">
+                        <MoreVertIcon style={{ color: '#757575' }} />
                     </IconButton>
                 </div>
             </div>
             <CardContent className={classes.rootContent}>
-                <div className={classes.details}>
-                    <CardContent className={classes.content}>
-                        <p>Rp 3,600,000</p>
-                    </CardContent>
-                    <div className={classes.controls}>
-                        <div className={classes.labelRoot}>
-                            <ArrowDownwardIcon className={classes.fontIcon} />
-                            <span className={classes.percentage}>13.8% </span>
-                            <p>&nbsp;last period in products sold</p>
-                        </div>
-                    </div>
-                </div>
+                {dummySalesTurnover.sort((a, b) => b.price * b.sold - a.price * a.sold).map((data, index) =>
+                    (
+                        data.category === category() ?
+                            <div className={classes.details} key={index}>
+                                <CardContent className={classes.content}>
+                                    <p>Rp {data.sales}</p>
+                                </CardContent>
+                                <div className={classes.controls}>
+                                    <div className={classes.labelRoot}>
+                                        <ArrowDownwardIcon className={classes.fontIcon} />
+                                        <span className={classes.percentage}>{data.percentage}% </span>
+                                        <p>&nbsp;last period in products sold</p>
+                                    </div>
+                                </div>
+                            </div>
+                            : null
+                    )
+                )}
                 <CardMedia
                     className={classes.cover}
                     image={Cart}

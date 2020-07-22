@@ -88,18 +88,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BestTopCard(props) {
     const classes = useStyles();
+    const index = [0,1,2,3,4]
+
     return (
         <ListItem className={classes.listItem}>
-            <Card className={props.index === 0 ? classes.rootCardFirst : classes.rootCard}>
+            <Card className={index.includes(props.index) ? classes.rootCardFirst : classes.rootCard}>
                 <CardMedia
-                    className={props.index === 0 ? classes.coverFirst : classes.cover}
+                    className={index.includes(props.index) ? classes.coverFirst : classes.cover}
                     image={props.image ? props.image : null}
                 />
-                <div className={props.index === 0 ? classes.detailsFirst : classes.details}>
-                    <CardContent className={props.index === 0 ? classes.contentFirst : classes.content}>
+                <div className={index.includes(props.index) ? classes.detailsFirst : classes.details}>
+                    <CardContent className={index.includes(props.index) ? classes.contentFirst : classes.content}>
                         <p>{props.title}</p>
                     </CardContent>
-                    <div className={props.index === 0 ? classes.controlsFirst : classes.controls}>
+                    <div className={index.includes(props.index) ? classes.controlsFirst : classes.controls}>
                         <p>Rp {props.price}</p>
                         <p>{props.sold}</p>
                     </div>

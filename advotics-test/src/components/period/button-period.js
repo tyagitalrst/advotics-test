@@ -5,7 +5,7 @@ import DateRangeIcon from '@material-ui/icons/DateRange';
 import Button from '@material-ui/core/Button';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
-import 'moment/min/locales'
+import 'moment/min/locales';
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -62,7 +62,6 @@ export default function ButtonPeriod(props) {
         <Button
             variant="contained"
             className={classes.button}
-            // startIcon={<DateRangeIcon style={{ color: '#8B8B8B' }} />}
             onClick={handleOnClick}
             endIcon={status ? <ExpandLessIcon style={{ color: '#757575' }} /> : <ExpandMoreIcon style={{ color: '#757575' }} />}
         >
