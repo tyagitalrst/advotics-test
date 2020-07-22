@@ -2,7 +2,8 @@
   "name": "advotics-test",
   "version": "0.1.0",
   "engines": {
-    "yarn": "1.x"
+    "node": "12.11.1",
+    "yarn": "1.17.3"
   },
   "private": true,
   "dependencies": {
