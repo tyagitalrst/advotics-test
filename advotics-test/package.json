@@ -1,6 +1,9 @@
 {
   "name": "advotics-test",
   "version": "0.1.0",
+  "engines": {
+    "yarn": "1.x"
+  },
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
